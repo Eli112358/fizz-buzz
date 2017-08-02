@@ -1,9 +1,15 @@
 var fizzBuzz = {
 	start: 1,
-	end: 100,
+	end: 101,
 	factors: [],
 	outputType: 'console',
 	outputEle: {},
+	continue: () => {
+		var length = this.end - this.start;
+		this.start = this.end;
+		this.end += length;
+		this.loop();
+	},
 	load: () => {
 		this.outputEle = document.getElementById('output');
 	},
@@ -15,7 +21,7 @@ var fizzBuzz = {
 	output: (line) => {
 		switch (this.outputType) {
 			case 'document':
-				this.outputEle.innerHTML+=line+'<br>';
+				this.outputEle.innerHTM L+= line+'<br>';
 				break;
 			default:
 				console.log(line);
@@ -24,7 +30,7 @@ var fizzBuzz = {
 	reset: () => {
 		switch (this.outputType) {
 			case 'document':
-				this.outputEle.innerHTML='';
+				this.outputEle.innerHTML = '';
 				break;
 			default:
 				console.log("Programmatical console clearing is browser specific, please clear your's manually.");
@@ -34,7 +40,7 @@ var fizzBuzz = {
 		var result = '';
 		for (var f in this.factors) {
 			if (this.factors.hasOwnProperty(f)) {
-				if (!(i % f)) result+=this.factors[f];
+				if (!(i % f)) result += this.factors[f];
 			}
 		}
 		return (result == '') ? i : result;
