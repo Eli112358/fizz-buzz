@@ -3,34 +3,34 @@ var fizzBuzz = {
 	end: 101,
 	factors: [],
 	outputType: 'console',
-	outputEle: {},
+	outputEle: {}, //not yet implemented
 	continue: () => {
-		var length = this.end - this.start;
-		this.start = this.end;
-		this.end += length;
-		this.loop();
+		var length = fizzBuzz.end - fizzBuzz.start;
+		fizzBuzz.start = fizzBuzz.end;
+		fizzBuzz.end += length;
+		fizzBuzz.loop();
 	},
-	load: () => {
-		this.outputEle = document.getElementById('output');
+	load: () => { //not yet implemented
+		fizzBuzz.outputEle = document.getElementById('output');
 	},
 	loop: () => {
-		for (var i = this.start; i < this.end; i++) {
-			this.output(this.step(i));
+		for (var i = fizzBuzz.start; i < fizzBuzz.end; i++) {
+			fizzBuzz.output(fizzBuzz.step(i));
 		}
 	},
 	output: (line) => {
-		switch (this.outputType) {
+		switch (fizzBuzz.outputType) {
 			case 'document':
-				this.outputEle.innerHTM L+= line+'<br>';
+				fizzBuzz.outputEle.innerHTML += line+'<br>';
 				break;
 			default:
 				console.log(line);
 		}
 	},
-	reset: () => {
-		switch (this.outputType) {
+	reset: () => { //not yet implemented
+		switch (fizzBuzz.outputType) {
 			case 'document':
-				this.outputEle.innerHTML = '';
+				fizzBuzz.outputEle.innerHTML = '';
 				break;
 			default:
 				console.log("Programmatical console clearing is browser specific, please clear your's manually.");
@@ -38,11 +38,12 @@ var fizzBuzz = {
 	},
 	step: (i) => {
 		var result = '';
-		for (var f in this.factors) {
-			if (this.factors.hasOwnProperty(f)) {
-				if (!(i % f)) result += this.factors[f];
-			}
+		for (var f in fizzBuzz.factors) {
+			if (!(i % f)) result += fizzBuzz.factors[f];
 		}
 		return (result == '') ? i : result;
 	}
 };
+function getFizzBuzzObject() {
+	return fizzBuzz;
+}
