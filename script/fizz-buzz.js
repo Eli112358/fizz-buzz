@@ -3,7 +3,10 @@ var fizzBuzz = {
 	end: 100,
 	factors: [],
 	outputType: 'console',
-	load: () => {},
+	outputEle: {},
+	load: () => {
+		this.outputEle = document.getElementById('output');
+	},
 	loop: (i = this.start) => {
 		this.output(this.step(i));
 		if (i < this.end) this.loop(i+1);
@@ -11,7 +14,7 @@ var fizzBuzz = {
 	output: (line) => {
 		switch (this.outputType) {
 			case 'document':
-				document.getElementById('output').innerHTML+=line+'<br>';
+				this.outputEle.innerHTML+=line+'<br>';
 				break;
 			default:
 				console.log(line);
@@ -20,7 +23,7 @@ var fizzBuzz = {
 	reset: () => {
 		switch (this.outputType) {
 			case 'document':
-				document.getElementById('output').innerHTML='';
+				this.outputEle.innerHTML='';
 				break;
 			default:
 				console.log("Programmatical console clearing is browser specific, please clear your's manually.");
