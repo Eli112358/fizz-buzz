@@ -1,18 +1,15 @@
-var fizzBizz = {
+var fizzBuzz = {
 	start: 1,
 	end: 100,
-	factors: [
-		3: 'Fizz',
-		5: 'Buzz'
-	],
+	factors: [],
 	outputType: 'console',
-	load: function() {},
-	loop: function(i = fizzBizz.start) {
-		fizzBizz.output(fizzBizz.step(i));
-		if (i < fizzBizz.end) fizzBizz.loop(i+1);
+	load: () => {},
+	loop: (i = this.start) => {
+		this.output(this.step(i));
+		if (i < this.end) this.loop(i+1);
 	},
-	output: function(line) {
-		switch (fizzBizz.outputType) {
+	output: (line) => {
+		switch (this.outputType) {
 			case 'document':
 				document.getElementById('output').innerHTML+=line+'<br>';
 				break;
@@ -20,8 +17,8 @@ var fizzBizz = {
 				console.log(line);
 		}
 	},
-	reset: function() {
-		switch (fizzBizz.outputType) {
+	reset: () => {
+		switch (this.outputType) {
 			case 'document':
 				document.getElementById('output').innerHTML='';
 				break;
@@ -29,11 +26,11 @@ var fizzBizz = {
 				console.log("Programmatical console clearing is browser specific, please clear your's manually.");
 		}
 	},
-	step: function(i) {
+	step: (i) => {
 		var result = '';
-		for (var f in fizzBizz.factors) {
-			if (fizzBizz.factors.hasOwnProperty(f)) {
-				if (!(i % f)) result+=fizzBizz.factors[f];
+		for (var f in this.factors) {
+			if (this.factors.hasOwnProperty(f)) {
+				if (!(i % f)) result+=this.factors[f];
 			}
 		}
 		return (result == '') ? i : result;
