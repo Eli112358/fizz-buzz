@@ -7,9 +7,10 @@ var fizzBuzz = {
 	load: () => {
 		this.outputEle = document.getElementById('output');
 	},
-	loop: (i = this.start) => {
-		this.output(this.step(i));
-		if (i < this.end) this.loop(i+1);
+	loop: () => {
+		for (var i = this.start; i < this.end; i++) {
+			this.output(this.step(i));
+		}
 	},
 	output: (line) => {
 		switch (this.outputType) {
