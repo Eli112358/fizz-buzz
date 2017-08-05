@@ -1,3 +1,9 @@
+var threading = {
+	results: [],
+	maxThreads: 100,
+	proccess: 1,
+	output: 1
+};
 var fizzBuzz = {
 	start: 1,
 	end: 101,
@@ -13,11 +19,7 @@ var fizzBuzz = {
 	load: () => { //not yet implemented
 		fizzBuzz.outputEle = document.getElementById('output');
 	},
-	loop: () => {
-		for (var i = fizzBuzz.start; i < fizzBuzz.end; i++) {
-			fizzBuzz.output(fizzBuzz.step(i));
-		}
-	},
+	start: () => {},
 	output: (line) => {
 		switch (fizzBuzz.outputType) {
 			case 'document':
@@ -47,3 +49,36 @@ var fizzBuzz = {
 function getFizzBuzzObject() {
 	return fizzBuzz;
 }
+function launchWorker(i) {
+	if (typeof(Worker) == 'undefined') {
+		console.log('Sorry! No Web Worker support');
+		return;
+	}
+	var worker = new Worker('fb-thread.js');
+	worker.onmessage = function(e) {
+		console.log(e);
+		var data = e.data;
+		switch (data.type) {
+			case 'error':
+				console.log('Error: '+e.data.e);
+				break;
+			case 'data':
+				console.log('Recieved message: ['+e.data.i+'] '+e.data.result);
+				// threading.results[e.data.i] = e.data.result;
+				break;
+			default:
+		}
+	};
+	worker.onerror = function(e) {
+		console.log(e);
+		console.log('Error in '+e.filename+'('+e.lineno+'): '+e.message);
+	};
+	console.log('Starting worker...');
+	try {
+		worker.postMessage({'cmd': 'fbThread', 'i': i, 'factors': fizzBuzz.factors});
+	} catch (e) {
+		console.log(e);
+	} finally {
+		console.log('Finished');
+	}
+};
