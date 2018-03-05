@@ -1,0 +1,16 @@
+function load() {
+  initFizzBuzz();
+  initInfo();
+  initTool();
+  initGame();
+  initSettingsSpecific();
+  ['button', 'input'].forEach((tag) => {
+    [].forEach.call(getByTag(tag), (ele) => {
+      ele.classList.add('btn')
+    })
+  });
+  insertCodeFromFile({
+    'path': '../snippets/header.txt',
+    'id': 'header'
+  });
+}
