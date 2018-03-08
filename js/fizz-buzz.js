@@ -25,3 +25,6 @@ function initFizzBuzz() {
 	fizzBuzz.addWord(3, 'Fizz');
   fizzBuzz.addWord(5, 'Buzz');
 }
+function getFizzBuzz() {
+	return fizzBuzz;
+}
