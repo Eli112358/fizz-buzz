@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset='utf-8'>
@@ -6,6 +5,8 @@
 		<link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print">
+		<link rel="stylesheet" type="text/css" href="../stylesheets/model.css">
+		<link rel="stylesheet" type="text/css" href="../prime-time/css/main.css">
 		<title>Eli112358 - FizzBuzz</title>
 		<script src="../javascripts/fetchRemoteFile.js"></script>
 		<script src="../javascripts/model.js"></script>
@@ -40,7 +41,17 @@
           </div>
         </div>
         <div id="settings-main" class="settings model hidden"></div>
-        <div id="tool-main" class="mode-main"></div>
+        <div id="tool-main" class="mode-main">
+					<h3>Enter a number to generate output:</h3>
+          <form action="javascript:getTool().go()">
+            <input type="number" id="tool-input" autofocus>
+            <input type="submit" value="Go" class="button"><br>
+            <input type="reset" onclick="getTool().reset(true)" class="button">
+            <input type="button" value="-" onclick="getTool().delta('-')" class="button delta">
+            <input type="button" value="+" onclick="getTool().delta('+')" class="button delta">
+          </form>
+					<h2 id="tool-output"></h2>
+				</div>
         <div id="game-main" class="mode-main"></div>
 				<div id="end-game-main" class="end-game model hidden">
           <div class="model-content">
