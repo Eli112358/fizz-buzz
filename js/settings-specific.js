@@ -18,16 +18,16 @@ function initSettingsSpecific() {
             [].forEach.call(getByClass(n), toggle)
           })
         }
-      })
+      });
+      initModifiableList({
+        'get': () => settings.words,
+        'set': (newValue) => {
+          settings.words = newValue
+        },
+        'prefix': 'words'
+      });
     }
-  });
-  initModifiableList({
-    'get': () => settings.words,
-    'set': (newValue) => {
-      settings.words = newValue
-    },
-    'prefix': 'words'
-  });
+  })
 }
 function getSettings() {
   return settings;
