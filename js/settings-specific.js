@@ -5,7 +5,7 @@ function initSettingsSpecific() {
     'set': (newValue) => {
       settings = newValue
     },
-    'store': ['range', 'formula'],
+    'store': ['range'],
     'toggle': ['mode'],
     'func': () => {
       settings.toggle.setup({
@@ -24,7 +24,7 @@ function initSettingsSpecific() {
         'set': (newValue) => {
           settings.words = newValue
         },
-        'prefix': 'words'
+        'prefix': 'words-'
       });
     }
   })
