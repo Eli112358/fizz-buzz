@@ -1,10 +1,10 @@
 var tool;
 function initTool() {
   tool = initModule('tool-', ['main', 'input', 'output']);
-  tool.out = (str) => {tool.ele.output.innerHTML += str};
+  tool.out = (str) => {tool.ele.output.innerHTML += str + '<br/>'};
   tool.go = () => {
     tool.reset(false);
-    for(var i=0; i<getSettings().store.ele.range.value; i++) {
+    for(var i=1; i<getSettings().store.ele.range.value; i++) {
       tool.out(getFizzBuzz().step(tool.ele.input.value+i))
     }
   };

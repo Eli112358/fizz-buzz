@@ -23,7 +23,7 @@ function initFizzBuzz() {
 		return (result == '') ? n : result;
 	};
 	fizzBuzz.addWord(3, 'Fizz');
-  fizzBuzz.addWord(5, 'Buzz');
+	fizzBuzz.addWord(5, 'Buzz');
 }
 function getFizzBuzz() {
 	return fizzBuzz;
