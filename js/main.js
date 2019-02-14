@@ -1,8 +1,4 @@
 function load() {
-  initFizzBuzz();
-  // initInfo();
-  initTool();
-  // initGame();
   initSettingsSpecific();
   ['button', 'input'].forEach((tag) => {
     [].forEach.call(getByTag(tag), (ele) => {
@@ -10,4 +6,8 @@ function load() {
     })
   });
   loadSnippets({'id': 'header'});
+  initFizzBuzz();
+  // initInfo();
+  initTool();
+  // initGame();
 }
