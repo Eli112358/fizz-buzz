@@ -26,6 +26,7 @@ function initSettingsSpecific() {
         },
         'prefix': 'words-'
       });
+      loadMore();
     }
   })
 }
