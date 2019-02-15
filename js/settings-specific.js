@@ -20,8 +20,9 @@ function initSettingsSpecific() {
 				}
 			});
 			var wordsStyles = [
-				'.words-list, .words-value {width: 100%}',
-				'.words-list td {padding: 0px 3px}'
+				'#words-index {width: 50px}',
+				'#words-list td {padding: 0px 3px}',
+				'.words-value {width: 100%}'
 			];
 			initModifiableList({
 				'get': () => settings.words,
@@ -29,7 +30,7 @@ function initSettingsSpecific() {
 					settings.words = newValue
 				},
 				'prefix': 'words-',
-				'style': wordsStyles.join('\n')
+				'style': wordsStyles.join(' ')
 			});
 			loadMore();
 		}
