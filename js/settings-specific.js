@@ -7,11 +7,6 @@ function initSettingsSpecific() {
 		},
 		'store': ['range'],
 		'toggle': ['mode'],
-		'preAppend': () => {
-			prepModifiableList({
-				'prefix': 'words-'
-			});
-		},
 		'postAppend': () => {
 			settings.toggle.setup({
 				'ele': settings.toggle.ele.mode,
@@ -24,19 +19,12 @@ function initSettingsSpecific() {
 					})
 				}
 			});
-			var wordsStyles = [
-				'#words-form {margin: 0px}',
-				'#words-index {width: 50px}',
-				'#words-list td {padding: 0px 3px}',
-				'.words-value {width: 100%}'
-			];
 			initModifiableList({
 				'get': () => settings.words,
 				'set': (newValue) => {
 					settings.words = newValue
 				},
-				'prefix': 'words-',
-				'style': wordsStyles.join(' ')
+				'prefix': 'words-'
 			});
 			loadMore();
 		}
