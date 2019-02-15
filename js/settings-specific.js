@@ -7,7 +7,12 @@ function initSettingsSpecific() {
 		},
 		'store': ['range'],
 		'toggle': ['mode'],
-		'func': () => {
+		'preAppend': () => {
+			prepModifiableList({
+				'prefix': 'words-'
+			});
+		},
+		'postAppend': () => {
 			settings.toggle.setup({
 				'ele': settings.toggle.ele.mode,
 				'property': 'value',
