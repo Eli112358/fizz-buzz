@@ -1,4 +1,4 @@
 Mode: <input type="button" id="settings-toggle-mode" value="Game" class="button"><br/>
 Range: <input type="number" id="settings-store-range" value="100"><br/>
 Words:
-<div id="words-main"><input id="words-index" type="number"><input id="words-value"><input id="words-add" type="button" value="Add"><br/><ol id="words-list"></ol></div>
+<div id="words-main"><input id="words-index" type="number"><input id="words-value"><input id="words-add" type="button" value="Add"><br/><table id="words-list"></table></div>

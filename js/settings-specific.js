@@ -19,12 +19,17 @@ function initSettingsSpecific() {
 					})
 				}
 			});
+			var wordsStyles = [
+				'.words-list, .words-value {width: 100%}',
+				'.words-list td {padding: 0px 3px}'
+			];
 			initModifiableList({
 				'get': () => settings.words,
 				'set': (newValue) => {
 					settings.words = newValue
 				},
-				'prefix': 'words-'
+				'prefix': 'words-',
+				'style': wordsStyles.join('\n')
 			});
 			loadMore();
 		}
