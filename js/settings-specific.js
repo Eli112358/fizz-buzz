@@ -20,6 +20,7 @@ function initSettingsSpecific() {
 				}
 			});
 			var wordsStyles = [
+				'#words-form {margin: 0px}',
 				'#words-index {width: 50px}',
 				'#words-list td {padding: 0px 3px}',
 				'.words-value {width: 100%}'
