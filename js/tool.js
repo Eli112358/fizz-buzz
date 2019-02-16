@@ -5,7 +5,7 @@ function initTool() {
 	tool.go = () => {
 		tool.reset(false);
 		for(var i=1; i<getSettings().store.ele.range.value; i++) {
-			tool.out(getFizzBuzz().step(tool.ele.input.value+i))
+			tool.out(getFizzBuzz().step(parseInt(tool.ele.input.value)+i))
 		}
 	};
 	tool.reset = (full) => {
