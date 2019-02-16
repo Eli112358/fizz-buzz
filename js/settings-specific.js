@@ -25,6 +25,7 @@ function initSettingsSpecific() {
 					settings.words = newValue
 				},
 				'prefix': 'words-',
+				'element': settings.ele.body,
 				'handlerFinished': loadMore
 			});
 		}
