@@ -1,3 +1,0 @@
-Mode: <input type="button" id="settings-toggle-mode" value="Game" class="button"><br/>
-Range: <input type="number" id="settings-store-range" value="100"><br/>
-Words:
