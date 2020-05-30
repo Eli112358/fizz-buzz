@@ -1,31 +1,46 @@
-var fizzBuzz = {};
-function initFizzBuzz() {
-	fizzBuzz.words = () => settings.words.array;
-	fizzBuzz.addWord = (n, word) => {
-		fizzBuzz.words()[n] = word;
-	};
-	fizzBuzz.removeWord = (spec) => {
-		var index = -1;
-		if(spec.hesOwnProperty('index'))
-			index = spec.index;
-		else if(spec.hesOwnProperty('word'))
-			index = fizzBuzz.words().indexOf(spec.word);
-		if(index < 0) {
-			console.log('No index was specified');
-			return;
+import { settings } from './settings-body.js';
+
+class FizzBuzz {
+	constructor() {
+		this.add(3, 'Fizz');
+		this.add(5, 'Buzz');
+		settings.words.redraw();
+	}
+	get words() {
+		return settings.words.array;
+	}
+	add(n, word) {
+		this.words[n] = word;
+	}
+	remove({
+		index = -1,
+		word,
+	}={}) {
+		if (word) {
+			index = this.words.indexOf(word);
 		}
-		fizzBuzz.words().pop(index);
-	};
-	fizzBuzz.step = (n) => {
-		var result = '';
-		for(var w in fizzBuzz.words())
-			if(!(n%w)) result += fizzBuzz.words()[w];
-		return (result == '') ? n : result;
-	};
-	fizzBuzz.addWord(3, 'Fizz');
-	fizzBuzz.addWord(5, 'Buzz');
-	settings.words.redraw();
+		if (index < 0) {
+			console.log('No index was specified');
+		} else {
+			this.words.pop(index);
+		}
+	}
+	step(n) {
+		let result = [];
+		for (let i in this.words) {
+			if (!(n%i)) {
+				result.push(this.words[i]);
+			}
+		}
+		if (!result.length) {
+			result.push('' + n);
+		}
+		return result.join('') + '<br>';
+	}
 }
-function getFizzBuzz() {
-	return fizzBuzz;
-}
+
+const fizzBuzz = new FizzBuzz();
+
+export {
+	fizzBuzz,
+};

@@ -3,22 +3,14 @@
 		<meta charset='utf-8'>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
-		<link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css">
-		<link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css">
-		<link rel="stylesheet" type="text/css" href="../stylesheets/model.css">
-		<link rel="stylesheet" type="text/css" href="../stylesheets/modifiable-list.css">
-		<script type="text/javascript" src="../javascripts/fetchRemoteFile.js"></script>
-		<script type="text/javascript" src="../javascripts/model.js"></script>
-		<script type="text/javascript" src="../javascripts/modifiable-list.js"></script>
-		<script type="text/javascript" src="../javascripts/module.js"></script>
-		<script type="text/javascript" src="../javascripts/settings.js"></script>
-		<script type="text/javascript" src="js/settings-specific.js"></script>
-		<script type="text/javascript" src="js/fizz-buzz.js"></script>
-		<script type="text/javascript" src="js/tool.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/modal.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/modifiable-list.css">
+		<script type="module" src="js/tool.js"></script>
 		<title>Eli112358 - FizzBuzz</title>
 	</head>
-	<body onload="load()">
+	<body>
 		<header>
 			<div class="container">
 				<h1>Eli112358</h1>
@@ -29,40 +21,40 @@
 		<div class="container">
 			<section id="main_content">
 				<button id="settings-open">Settings</button><br><br>
-				<div id="info-main" class="info model hidden">
-		  			<div class="model-content">
-						<div class="model-header">
+				<div id="info-main" class="info modal hidden">
+		  			<div class="modal-content">
+						<div class="modal-header">
 			  				<span id="info-close" class="close">&times;</span>
 			  				<h2>Info: <span id="info-title"></span></h2>
 						</div>
-						<div id="info-body" class="model-body"></div>
-						<div id="info-footer" class="model-footer"></div>
+						<div id="info-body" class="modal-body"></div>
+						<div id="info-footer" class="modal-footer"></div>
 					</div>
 				</div>
-				<div id="settings-main" class="settings model hidden"></div>
+				<div id="settings-main" class="settings modal hidden"></div>
 				<div id="tool-main" class="mode-main">
 					<h3>Enter a number to generate output:</h3>
-			  		<form action="javascript:getTool().go()">
+			  		<form action="javascript:go()">
 						<input type="number" id="tool-input" autofocus>
 						<input type="submit" value="Go" class="button"><br>
-						<input type="reset" onclick="getTool().reset(true)" class="button">
-						<input type="button" value="-" onclick="getTool().delta('-')" class="button delta">
-						<input type="button" value="+" onclick="getTool().delta('+')" class="button delta">
+						<input type="reset" onclick="clearForm(true)" class="button">
+						<input type="button" value="-" onclick="delta('-')" class="button delta">
+						<input type="button" value="+" onclick="delta('+')" class="button delta">
 					</form>
 					<h2 id="tool-output"></h2>
 				</div>
 				<div id="game-main" class="mode-main"></div>
-				<div id="end-game-main" class="end-game model hidden">
-					<div class="model-content">
-						<div class="model-header">
+				<div id="end-game-main" class="end-game modal hidden">
+					<div class="modal-content">
+						<div class="modal-header">
 							<span id="end-game-close" class="close">&times;</span>
 							<h2>End-game</h2>
 						</div>
-						<div class="model-body">
+						<div class="modal-body">
 							<h2>Score: <span id="end-game-score"></span></h2>
 							<h2>Par: <span id="end-game-par"></span></h2>
 						</div>
-						<div class="model-footer">
+						<div class="modal-footer">
 							Thanks for playing! Closing this will start a new game
 						</div>
 					</div>
