@@ -21,16 +21,15 @@ class FizzBuzz {
 		}
 		if (index < 0) {
 			console.log('No index was specified');
-		} else {
-			this.words.pop(index);
+			return;
 		}
+		this.words.pop(index);
 	}
 	step(n) {
 		let result = [];
 		for (let i in this.words) {
-			if (!(n%i)) {
-				result.push(this.words[i]);
-			}
+			if (n % i) continue;
+			result.push(this.words[i]);
 		}
 		if (!result.length) {
 			result.push('' + n);

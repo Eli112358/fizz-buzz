@@ -28,10 +28,11 @@ class Tool extends Elemental {
 	}
 	clear(full) {
 		this.elements.output.innerHTML = '';
-		if (full) {
-			this.elements.input.value = '0';
-			this.elements.input.focus();
+		if (!full) {
+			return;
 		}
+		this.elements.input.value = '0';
+		this.elements.input.focus();
 	}
 	out(s) {
 		this.elements.output.insertAdjacentHTML('beforeEnd', s);

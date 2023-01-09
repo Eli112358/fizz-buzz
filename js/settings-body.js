@@ -9,14 +9,7 @@ const store = [
 
 class FizzBuzzSettings extends Settings {
 	constructor() {
-		super(
-			{
-				store,
-			},
-			{
-				body,
-			},
-		);
+		super({store,}, {body,},);
 		this.words = new ModifiableList('words-');
 		fixButtons('input');
 	}
